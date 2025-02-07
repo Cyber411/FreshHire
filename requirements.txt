@@ -16,7 +16,7 @@ packaging
 pathspec
 pillow
 psycopg2-binary
-pypiwin32
+
 python-dateutil
 pywin32
 PyYAML
