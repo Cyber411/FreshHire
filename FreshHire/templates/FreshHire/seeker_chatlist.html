@@ -1,0 +1,30 @@
+{% extends 'FreshHire/slayout.html'%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seeker Chat List</title>
+    <link rel="stylesheet" href="{% static 'FreshHire/css/seeker_chatlist.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Chat List</h1>
+    </header>
+
+    <div class="chat-list">
+        {% for partner in chat_partners %}
+            <div class="chat-partner">
+                <a href="{% url 'chat_detail' partner.id request.user.id %}">
+                    <p>{{ partner.username }}</p>
+                </a>
+            </div>
+        {% empty %}
+            <p>No chats available.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock%}

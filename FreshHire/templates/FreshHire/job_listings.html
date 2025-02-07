@@ -1,0 +1,30 @@
+{% extends 'FreshHire/slayout.html'%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Listings</title>
+  <link rel="stylesheet" href="{% static 'FreshHire/css/job_listings.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Job Listings</h1>
+    <div class="job-listings">
+      {% for job in jobs %}
+        <div class="job-card">
+          <h2>{{ job.title }}</h2>
+          <p class="description">{{ job.description|truncatewords:20 }}</p>
+          <p class="date">Posted on: {{ job.created_at|date:"F d, Y" }}</p>
+          <a href="{% url 'job_details' job_id=job.id%}" class="btn-view-details">View Details</a>
+        </div>
+      {% empty %}
+        <p>No job listings available at the moment.</p>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
+{%endblock%}

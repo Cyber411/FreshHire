@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employer Profile</title>
+    <link rel="stylesheet" href="{% static 'FreshHire/css/eedit_profile.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Employer Profile</h1>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="company_name">Company Name:</label>
+                <input type="text" name="company_name" id="company_name" value="{{ profile.company_name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Company Description:</label>
+                <textarea name="description" id="description" rows="5" required>{{ profile.description }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="profile_picture">Profile Picture:</label>
+                <input type="file" name="profile_picture" id="profile_picture">
+                {% if profile.profile_picture %}
+                    <p>Current: <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="preview-image"></p>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="company_logo">Company Logo (Optional):</label>
+                <input type="file" name="company_logo" id="company_logo">
+                {% if profile.company_logo %}
+                    <p>Current: <img src="{{ profile.company_logo.url }}" alt="Company Logo" class="preview-image"></p>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

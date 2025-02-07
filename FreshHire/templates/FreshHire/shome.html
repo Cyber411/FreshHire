@@ -1,0 +1,46 @@
+{% extends 'FreshHire/slayout.html'%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- You can add a link to your CSS file here -->
+    <link rel="stylesheet" href="{% static 'FreshHire/css/shome.css'%}">
+</head>
+<body>
+    <div class="main-content">
+        <h2>Welcome back, {{user.username}} !</h2>
+        <p>Your personalized dashboard for managing your profile, job applications, and exploring opportunities.</p>
+
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <h3>Update Your Profile</h3>
+                <p>Ensure your profile is up to date to improve your chances of getting hired.</p>
+                <p><a href="#" class="btn-primary">Edit Profile</a></p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>Job Listings</h3>
+                <p>Browse the latest job opportunities that match your skills and preferences.</p>
+                <p><a href="#" class="btn-primary">Browse Jobs</a></p>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>My Applications</h3>
+                <p>Track the jobs you’ve applied to and manage your applications.</p>
+                <p><a href="#" class="btn-primary">View Applications</a></p>
+            </div>
+        </div>
+
+        <div class="welcome-message">
+            <h3>Getting Started</h3>
+            <p>Welcome to your dashboard! Here you can manage your profile, apply for jobs, and track your progress.</p>
+            <p>Don’t forget to regularly update your profile to stand out to employers!</p>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock%}

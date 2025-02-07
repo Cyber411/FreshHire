@@ -1,0 +1,78 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.job-card {
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.job-card h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.job-card p.job-description {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.applications-list {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.application-card {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.application-card h5 {
+  font-size: 16px;
+  color: #007bff;
+}
+
+.application-card p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.view-more {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.view-more:hover {
+  background-color: #0056b3;
+}

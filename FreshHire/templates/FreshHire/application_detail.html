@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Detail</title>
+    <link rel="stylesheet" href="{% static 'FreshHire/css/appd.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Application Detail</h1>
+        
+        <div class="section">
+            <span class="label">Job Title:</span>
+            <p>{{ application.job.title }}</p>
+        </div>
+
+        <div class="section">
+            <span class="label">Seeker Name:</span>
+            <p>{{ application.seeker.user.username }}</p>
+        </div>
+
+        <div class="section">
+            <span class="label">Cover Letter:</span>
+            <p>{{ application.cover_letter|default:"No cover letter provided." }}</p>
+        </div>
+
+        <div class="section">
+            <span class="label">Application Status:</span>
+            <p>{{ application.status }}</p>
+        </div>
+
+        <div class="section">
+            <span class="label">Applied At:</span>
+            <p>{{ application.applied_at|date:"F j, Y, g:i a" }}</p>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <a href="{% url 'employer_job_applications' %}" class="button">Back to Applications</a>
+            <a href="{% url 'chat' application.seeker.user.id request.user.id %}" class="chat-button">Message Applicant</a>
+
+        </div>
+    </div>
+</body>
+</html>

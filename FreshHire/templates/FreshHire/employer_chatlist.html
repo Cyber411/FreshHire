@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+  <meta charset="UTF-8">
+  <title>Messages</title>
+  <link rel="stylesheet" href="{% static 'FreshHire/css/echat_list.css' %}">
+</head>
+<body>
+  <div class="inbox-container">
+    <h2>Chat with Seekers</h2>
+    <ul class="seeker-list">
+      {% for seeker in chat_partners %}
+        <li>
+          <a href="{% url 'chat' seeker.id request.user.id %}">
+            {{ seeker.username }} 
+            {{seeker.content}}
+          </a>
+       
+        </li>
+      {% empty %}
+        <p>No conversations yet.</p>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

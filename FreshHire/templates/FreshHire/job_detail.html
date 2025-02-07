@@ -1,0 +1,28 @@
+{% extends 'FreshHire/slayout.html'%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ job.title }}</title>
+  <link rel="stylesheet" href="{% static 'FreshHire/css/job_detail.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>{{ job.title }}</h1>
+    <p class="date">Posted on: {{ job.created_at|date:"F d, Y" }}</p>
+    
+    <div class="description">
+      <h2>Job Description</h2>
+      <p>{{ job.description|linebreaks }}</p>
+    </div>
+
+    <div class="apply-section">
+      <a href="{% url 'application' job_id=job.id %}" class="btn-apply">Apply Now</a>
+    </div>
+  </div>
+</body>
+</html>
+{%endblock%}

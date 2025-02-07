@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Job Applications</title>
+    <link rel="stylesheet" href="{% static 'FreshHire/css/employer_applicants.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Job Applications</h1>
+
+        {% if applications %}
+            {% for job_application in applications %}
+                <div class="job-card">
+                    <h3>{{ job_application.job.title }}</h3>
+                    <p class="job-description">{{ job_application.job.description }}</p>
+
+                    {% if job_application.applications %}
+                        <div class="applications-list">
+                            <h4>Applications:</h4>
+                            {% for application in job_application.applications %}
+                                <div class="application-card">
+                                    <h5>Seeker: {{ application.seeker.user.username }}</h5>
+                                    <p><strong>Cover Letter:</strong> {{ application.cover_letter|default:"No cover letter provided." }}</p>
+                                    <p><strong>Applied at:</strong> {{ application.applied_at|date:"Y-m-d H:i" }}</p>
+                                    <p><strong>Status:</strong> {{ application.status }}</p>
+                                    <a href="{% url 'application_detail' application_id=application.id%}" class="view-more">View Application</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No applications yet for this job.</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You have no job listings yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

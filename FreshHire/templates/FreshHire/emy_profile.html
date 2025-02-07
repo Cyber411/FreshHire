@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Profile</title>
+    <link rel="stylesheet" href="{% static 'FreshHire/css/emy_profile.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Employer Profile</h1>
+       {% for profile in profile%} 
+        <div class="profile-section">
+            <strong>Company Name:</strong> <span>{{ profile.company_name }}</span>
+        </div>
+
+        <div class="profile-section">
+            <strong>Description:</strong> <p>{{ profile.company_description }}</p>
+        </div>
+
+        <div class="profile-section">
+            <strong>Profile Picture:</strong><br>
+            {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="Profile Picture">
+            {% else %}
+                <p>No profile picture uploaded.</p>
+            {% endif %}
+        </div>
+
+        <div class="profile-section">
+            <strong>Company Logo:</strong><br>
+            {% if profile.company_logo %}
+                <img src="{{ profile.company_logo.url }}" alt="Company Logo">
+            {% else %}
+                <p>No company logo uploaded.</p>
+            {% endif %}
+
+            {% endfor%}
+        </div>
+        
+        <a href="{% url 'eedit_profile'%}" class="btn">Edit Profile</a>
+    </div>
+</body>
+</html>

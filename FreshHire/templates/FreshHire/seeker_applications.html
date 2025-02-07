@@ -1,0 +1,42 @@
+{% extends 'FreshHire/slayout.html'%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Applications</title>
+    <link rel="stylesheet" href="{% static 'FreshHire/css/seeker_applications.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Applications</h1>
+        {% if applications %}
+            <table class="applications-table">
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Applied At</th>
+                        <th>Status</th>
+                        <th>Cover Letter</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for application in applications %}
+                        <tr>
+                            <td><a href="#">{{ application.job.title }}</a></td>
+                            <td>{{ application.applied_at|date:"M d, Y H:i" }}</td>
+                            <td>{{ application.status }}</td>
+                            <td>{{ application.cover_letter|default:"N/A" }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You have not applied for any jobs yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+{% endblock%}

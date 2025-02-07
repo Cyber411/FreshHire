@@ -1,0 +1,49 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+.inbox-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.seeker-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.seeker-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.seeker-list li a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+  display: block;
+  transition: background 0.3s, color 0.3s;
+}
+
+.seeker-list li a:hover {
+  background: #f0f4f8;
+  color: #0056b3;
+}
+
+.seeker-list p {
+  text-align: center;
+  color: #666;
+}

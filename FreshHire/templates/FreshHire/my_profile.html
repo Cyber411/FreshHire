@@ -1,0 +1,59 @@
+{% extends 'FreshHire/slayout.html'%}
+{% block body%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {%load static%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'FreshHire/css/my_profile.css'%}"> <!-- External CSS -->
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="profile-header">
+      <h1>My Profile</h1>
+      <p>View and manage your profile information</p>
+    </div>
+    {%for profile in profile%}
+    <div class="profile-card">
+      <div class="text-center">
+        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+        <h3>John Doe</h3>
+        <p>Software Engineer | AI Enthusiast</p>
+      </div>
+
+      <hr>
+
+      <h5 class="section-title">Skills</h5>
+      
+      {% if profile.skills%}
+      <p>{{ profile.skills}}</p>
+      {% else %}
+      <p>No skills added</p>
+      {% endif%}
+
+      <h5 class="section-title">Education</h5>
+      {% if profile.education%}
+      <p>{{ profile.education}}</p>
+      {% else %}
+      <p>No education info added</p>
+      {% endif%}
+
+      <h5 class="section-title">Resume</h5>
+      {% if profile.profile.resume%}
+      <p><a href="{{profile.resume.url}}" download="{{profile.username}} s resume">Download Resume</a></p>
+      {% else %}
+      <p>Resume is not added yet</p>
+      {% endif%}
+
+      {% endfor%}
+      <div class="text-right mt-4">
+        <a href="{% url 'edit_profile'%}" class="btn btn-edit">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+{%endblock%}

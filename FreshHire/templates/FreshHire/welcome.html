@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to FreshHire</title>
+  <link rel="stylesheet" href="{% static 'FreshHire/css/welcome.css' %}">
+</head>
+<body>
+  <div class="welcome-container">
+    <h1>Welcome to FreshHire</h1>
+    <p>Your journey to find the perfect job or the ideal candidate starts here.</p>
+    <div class="buttons">
+      <a href="{% url 'signup_seeker' %}" class="btn-primary">Join as a Job Seeker</a>
+      <a href="{% url 'signup_employer' %}" class="btn-secondary">Join as an Employer</a>
+    </div>
+  </div>
+</body>
+</html>

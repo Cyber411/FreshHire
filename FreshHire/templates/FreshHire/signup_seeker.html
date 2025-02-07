@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as a Job Seeker | FreshHire</title>
+    <link rel="stylesheet" href="{% static 'FreshHire/css/signup_seeker.css' %}">
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Join as a Job Seeker</h2>
+        <p>Fill in the details below to create your account and start applying for jobs.</p>
+
+        <form method="POST" action="{% url 'signup_seeker'%}" >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required placeholder="Create a password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required placeholder="Confirm your password">
+            </div>
+
+            <button type="submit" class="btn-primary">Sign Up</button>
+        </form>
+
+        <div class="footer-text">
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>
