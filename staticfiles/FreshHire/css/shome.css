@@ -1,0 +1,155 @@
+/* Navbar Styling */
+.navbar {
+  background-color: #007BFF;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #ffc107; /* Yellow secondary color */
+}
+
+/* Dashboard Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: #f0f8ff;
+  width: 30%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dashboard-card h3 {
+  font-size: 1.5rem;
+  color: #007BFF;
+}
+
+.dashboard-card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.dashboard-card .btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-card .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Additional content styling */
+.welcome-message {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.welcome-message h3 {
+  color: #007BFF;
+  font-size: 1.5rem;
+}
+
+/* Mobile and Tablet Responsive Design */
+@media screen and (max-width: 1200px) {
+  .navbar-links {
+      gap: 15px;
+  }
+
+  .dashboard-cards {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .dashboard-card {
+      width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+      padding: 10px;
+  }
+
+  .navbar .logo {
+      font-size: 1.5rem;
+  }
+
+  .navbar-links li a {
+      font-size: 1rem;
+  }
+
+  .dashboard-cards {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .dashboard-card {
+      width: 100%;
+      padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-links {
+      display: block;
+      text-align: center;
+      gap: 10px;
+  }
+
+  .dashboard-card {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .dashboard-cards {
+      flex-direction: column;
+      gap: 15px;
+  }
+}
