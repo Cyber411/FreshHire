@@ -29,7 +29,7 @@ def signup_seeker(request):
         if password == confirm_password:
             user = User.objects.create_user(username=username, email=email, password=password, is_staff = False)
             
-            return redirect('seeker_profile_creation')
+            return redirect('login')
 
     return render(request, 'FreshHire/signup_seeker.html')
 
