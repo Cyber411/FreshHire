@@ -5,6 +5,8 @@ from . import views
 
 urlpatterns = [
     path('', views.welcome, name='welcome'),
+    path('shome/', views.shome, name='shome'),
+    path('ehome/', views.ehome, name='ehome'),
     path('signup_seeker/', views.signup_seeker, name='signup_seeker'),
     path('signup_employer/', views.signup_employer, name='signup_employer'),
     path('login/', views.login_user, name='login'),
@@ -30,7 +32,7 @@ urlpatterns = [
     path('chat/<int:seeker_id>/<int:employer_id>/', views.chat, name='chat'),
     path('chat-list/', views.chat_list, name='chat_list'),
     path('schat-list/', views.schat_list, name='schat_list'),
-    path('chat/<int:sender_id>/<int:receiver_id>/', views.schat_detail, name='chat_detail'),
+    path('chat/<int:sender_id>/<int:receiver_id>/', views.schat_detail, name='schat_detail'),
 
 
 ]

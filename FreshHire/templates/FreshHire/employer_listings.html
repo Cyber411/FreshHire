@@ -1,3 +1,5 @@
+{% extends 'FreshHire/elayout.html'%}
+{% block body%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@
                         <h3>{{ job.title }}</h3>
                         <p class="job-description">{{ job.description|default:"No description available." }}</p>
                         <p class="job-posted-at">Posted on: {{ job.created_at|date:"Y-m-d" }}</p>
-                        <a href="{% url 'job_details' job_id=job.id%}" class="view-more">View Details</a>
+                        
                     </div>
                 {% endfor %}
             </div>
@@ -27,3 +29,4 @@
     </div>
 </body>
 </html>
+{% endblock%}

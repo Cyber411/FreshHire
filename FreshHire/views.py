@@ -19,6 +19,12 @@ def is_seeker(user):
 def welcome(request):
     return render(request, 'FreshHire/welcome.html')
 
+def shome(request):
+    return render(request, 'FreshHire/shome.html')
+
+def ehome(request):
+    return render(request,'FreshHire/ehome.html')
+
 def signup_seeker(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -323,4 +329,4 @@ def schat_detail(request, sender_id, receiver_id):
         (Q(sender_id=receiver_id) & Q(receiver_id=sender_id))
     ).order_by('timestamp')  # Order by timestamp
 
-    return render(request, 'chat_detail.html', {'messages': messages, 'sender_id': sender_id, 'receiver_id': receiver_id})
+    return render(request, 'FreshHire/schat_detail.html', {'messages': messages, 'sender_id': sender_id, 'receiver_id': receiver_id})

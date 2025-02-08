@@ -17,7 +17,7 @@
     <div class="chat-list">
         {% for partner in chat_partners %}
             <div class="chat-partner">
-                <a href="{% url 'chat_detail' partner.id request.user.id %}">
+                <a href="{% url 'schat_detail' partner.id request.user.id %}">
                     <p>{{ partner.username }}</p>
                 </a>
             </div>

@@ -13,7 +13,7 @@
         <div class="navbar-container">
             <a href="#" class="logo">FreshHire</a>
             <ul class="navbar-links">
-                <li><a href="#">Home</a></li>
+                <li><a href="{%url 'shome'%}">Home</a></li>
                 <li><a href="{% url 'my_profile'%}">My Profile</a></li>
                 <li><a href="{%url 'job_listings'%}">Job Listings</a></li>
                 <li><a href="{% url 'myapplications'%}">My Applications</a></li>
@@ -21,24 +21,8 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Dashboard Container -->
-    <div class="dashboard-container">
-        <div class="sidebar">
-            <h3>Seeker Dashboard</h3>
-            <ul>
-                <li><a href="#">My Profile</a></li>
-                <li><a href="#">Job Listings</a></li>
-                <li><a href="#">My Applications</a></li>
-                <li><a href="{% url 'schat_list'%}">messages</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
-        </div>
-        {% block body%}
-
-        {% endblock %}
-
-        
-    </div>
+{% block body%}
+{% endblock%}
+    
 </body>
 </html>
