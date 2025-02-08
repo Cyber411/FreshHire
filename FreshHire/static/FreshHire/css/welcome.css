@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-  color: #1e90ff; /* Blue primary color */
+  color: #1e90ff;
   font-size: 3rem;
 }
 
@@ -45,10 +45,25 @@ p {
 }
 
 .btn-secondary {
-  background-color: #ffc107; /* Yellow secondary color */
+  background-color: #ffc107;
   color: #333;
 }
 
 .btn-secondary:hover {
   background-color: #e0a800;
+}
+
+.login-link {
+  text-align: right;
+  padding: 10px 20px;
+}
+
+.login-link a {
+  color: #1e90ff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
 }
