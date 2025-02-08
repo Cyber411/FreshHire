@@ -17,7 +17,8 @@
       {% for profile in profile %}
       <div class="form-group">
         <label for="profile_picture">Profile Picture:</label>
-        <input type="file" name="profile_picture" id="profile_picture" value="{{profile.profile_picture.url}}" >
+        <input type="file" name="profile_picture" id="profile_picture"  {% if profile.profile_picture%}
+        value="{{profile.profile_picture.url}}" {% else%} name="profile_picture" {% endif%} >
       </div>
 
       <div class="form-group">
