@@ -216,7 +216,7 @@ def my_applications(request):
 def my_listings(request):
     employer = request.user.employerprofile  
     jobs = Job.objects.filter(employer=employer)  
-    return render(request, 'freshHire/employer_listings.html', {'jobs': jobs})
+    return render(request, 'FreshHire/employer_listings.html', {'jobs': jobs})
 
 
 
