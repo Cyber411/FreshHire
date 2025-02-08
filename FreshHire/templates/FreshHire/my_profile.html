@@ -24,7 +24,7 @@
         {% else%}
         <p>No profile picture Uploaded</p>
         {% endif%}
-        <h3>John Doe</h3>
+        <h3>{{profile.user.username}}</h3>
         <p>Software Engineer | AI Enthusiast</p>
       </div>
 
@@ -46,7 +46,7 @@
       {% endif%}
 
       <h5 class="section-title">Resume</h5>
-      {% if profile.profile.resume%}
+      {% if profile.resume%}
       <p><a href="{{profile.resume.url}}" download="{{profile.username}} s resume">Download Resume</a></p>
       {% else %}
       <p>Resume is not added yet</p>

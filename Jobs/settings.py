@@ -90,7 +90,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-DATABASES['default']=  dj_database_url.parse("postgresql://jobs_5jrx_user:PRIAwoCFeBZxJOEAX2xPJb4BWnwjmrki@dpg-cuj8suqj1k6c73cpe3b0-a/jobs_5jrx")
+#DATABASES['default']=  dj_database_url.parse("postgresql://jobs_5jrx_user:PRIAwoCFeBZxJOEAX2xPJb4BWnwjmrki@dpg-cuj8suqj1k6c73cpe3b0-a/jobs_5jrx")
 
 
 

@@ -32,7 +32,7 @@ urlpatterns = [
     path('chat/<int:seeker_id>/<int:employer_id>/', views.chat, name='chat'),
     path('chat-list/', views.chat_list, name='chat_list'),
     path('schat-list/', views.schat_list, name='schat_list'),
-    path('chat/<int:sender_id>/<int:receiver_id>/', views.schat_detail, name='schat_detail'),
+    path('schat/<int:employer_id>/<int:seeker_id>', views.schat_detail, name='schat_detail'),
 
 
 ]

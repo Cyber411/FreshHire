@@ -106,11 +106,11 @@ def login_user(request):
         if user is not None:
             login(request, user)
             if is_seeker(user):
-                return redirect('seeker_dashboard')
+                return redirect('shome')
             elif is_employer(user):
-                return redirect('employer_dashboard')
+                return redirect('ehome')
         else:
-           return HttpResponse('user not found')
+           return redirect('login')
     return render(request, 'FreshHire/login.html')
 
 def job_listings(request):
@@ -151,7 +151,7 @@ def employer_dashboard(request):
     except EmployerProfile.DoesNotExist:
         employer_profile = None
         posted_jobs = None
-    return render(request, 'FreshHire/employer_dashboard.html', {'employer_profile': employer_profile, 'posted_jobs': posted_jobs})
+    return render(request, 'FreshHire/ehome.html', {'employer_profile': employer_profile, 'posted_jobs': posted_jobs})
 
 def logout_view(request):
     logout(request)
@@ -322,11 +322,16 @@ def schat_list(request):
     return render(request, 'FreshHire/seeker_chatlist.html', {'chat_partners': chat_partners})
 
 
-def schat_detail(request, sender_id, receiver_id):
-    # Get all messages exchanged between sender and receiver
+def schat_detail(request, employer_id, seeker_id):
     messages = Message.objects.filter(
-        (Q(sender_id=sender_id) & Q(receiver_id=receiver_id)) | 
-        (Q(sender_id=receiver_id) & Q(receiver_id=sender_id))
-    ).order_by('timestamp')  # Order by timestamp
-
-    return render(request, 'FreshHire/schat_detail.html', {'messages': messages, 'sender_id': sender_id, 'receiver_id': receiver_id})
+        (Q(sender_id=employer_id, recipient_id=seeker_id) | 
+         Q(sender_id=seeker_id, recipient_id=employer_id))
+    ).order_by('timestamp')
+    
+    if request.method == "POST":
+        content = request.POST['content']
+        sender = request.user
+        recipient = User.objects.get(id=employer_id if sender.id == seeker_id else seeker_id)
+        Message.objects.create(sender=sender, recipient=recipient, content=content)
+    
+    return render(request, 'FreshHire/schat_detail.html', {'messages': messages})

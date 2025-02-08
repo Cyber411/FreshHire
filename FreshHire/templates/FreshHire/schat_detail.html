@@ -1,34 +1,24 @@
-{% extends 'FreshHire/slayout.html'%}
+{% extends 'FreshHire/slayout.html' %}
 
-{% block body%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with {{ employer.username }}</title>
-    <link rel="stylesheet" href="{% static 'FreshHire/css/schat_detail.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Chat with {{ employer.username }}</h1>
-    </header>
-
-    <div class="chat-box">
+{% block body %}
+<div class="chat-container">
+    <div class="chat-header">
+        
+    </div>
+    <div class="chat-messages" id="chat-messages">
         {% for message in messages %}
-            <div class="message {% if message.sender == user %}sent{% else %}received{% endif %}">
-                <p><strong>{{ message.sender.username }}:</strong> {{ message.content }}</p>
-                <span class="timestamp">{{ message.timestamp }}</span>
+            <div class="chat-message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
+                <p>{{ message.content }}</p>
+                <span class="timestamp">{{ message.timestamp|date:"H:i" }}</span>
             </div>
         {% endfor %}
     </div>
-
-    <form method="POST">
-        {% csrf_token %}
-        <textarea name="content" placeholder="Type your message..." required></textarea>
-        <button type="submit">Send</button>
-    </form>
-</body>
-</html>
-{%endblock%}
+    <div class="chat-input-container">
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="content" rows="2" placeholder="Type your message..." required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
