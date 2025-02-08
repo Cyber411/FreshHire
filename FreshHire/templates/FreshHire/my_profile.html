@@ -19,7 +19,11 @@
     {%for profile in profile%}
     <div class="profile-card">
       <div class="text-center">
+        {% if profile.profile.profile_picture%}
         <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+        {% else%}
+        <p>No profile picture Uploaded</p>
+        {% endif%}
         <h3>John Doe</h3>
         <p>Software Engineer | AI Enthusiast</p>
       </div>
