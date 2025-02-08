@@ -1,7 +1,10 @@
-{% load static %}
+{% extends 'FreshHire/elayout.html'%}
+
+{% block body%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
@@ -30,3 +33,4 @@
     </div>
 </body>
 </html>
+{% endblock%}
