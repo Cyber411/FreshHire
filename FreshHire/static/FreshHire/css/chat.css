@@ -1,72 +1,56 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .chat-container {
-  width: 100%;
   max-width: 600px;
-  background: #ffffff;
+  margin: 20px auto;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
 .chat-header {
-  background: #4A90E2;
+  background: #2C3E50;  /* Changed to a darker shade for employer */
   padding: 16px;
-  color: #ffffff;
+  color: white;
   text-align: center;
   font-size: 18px;
 }
 
 .chat-messages {
-  flex-grow: 1;
-  padding: 16px;
+  height: 300px;
   overflow-y: auto;
-  background: #f9f9f9;
+  padding: 16px;
+  background: #f8f9fa;
 }
 
 .chat-message {
   margin-bottom: 12px;
-  padding: 10px 16px;
+  padding: 10px;
   border-radius: 12px;
   max-width: 75%;
   word-wrap: break-word;
-  position: relative;
 }
 
 .chat-message.sent {
-  background: #DCF8C6;
+  background: #AED6F1;  /* Slightly different shade for sent messages */
   align-self: flex-end;
 }
 
 .chat-message.received {
   background: #ffffff;
-  align-self: flex-start;
   border: 1px solid #ddd;
+  align-self: flex-start;
 }
 
 .timestamp {
   font-size: 12px;
   color: #888;
   margin-top: 4px;
-  display: block;
   text-align: right;
 }
 
 .chat-input-container {
   border-top: 1px solid #ddd;
   padding: 8px;
-  background: #f1f1f1;
   display: flex;
 }
 
@@ -77,20 +61,17 @@ body {
   border-radius: 4px;
   resize: none;
   outline: none;
-  font-size: 14px;
 }
 
 .chat-input-container button {
-  background: #4A90E2;
+  background: #2C3E50;  /* Button matches the chat header for consistency */
   color: white;
   border: none;
-  padding: 10px 16px;
-  margin-left: 8px;
+  padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .chat-input-container button:hover {
-  background: #357ABD;
+  background: #1A252F;
 }
