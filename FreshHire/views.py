@@ -19,9 +19,10 @@ def is_seeker(user):
 def welcome(request):
     return render(request, 'FreshHire/welcome.html')
 
+@login_required
 def shome(request):
     return render(request, 'FreshHire/shome.html')
-
+@login_required
 def ehome(request):
     return render(request,'FreshHire/ehome.html')
 
@@ -39,6 +40,7 @@ def signup_seeker(request):
 
     return render(request, 'FreshHire/signup_seeker.html')
 
+@login_required
 def edit_profile(request):
     user=request.user.seekerprofile
     profile=SeekerProfile.objects.filter(user=request.user)
@@ -77,6 +79,8 @@ def signup_employer(request):
 
     return render(request, 'FreshHire/signup_employer.html')
 
+
+@login_required
 def eedit_profile(request):
     user=request.user.employerprofile
     if request.method == "POST":
@@ -113,6 +117,7 @@ def login_user(request):
            return redirect('login')
     return render(request, 'FreshHire/login.html')
 
+@login_required
 def job_listings(request):
     jobs = Job.objects.all()
     return render(request, 'FreshHire/job_listings.html', {'jobs': jobs})
