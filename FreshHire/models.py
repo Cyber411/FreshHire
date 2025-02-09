@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User  # Use the default User model
+from django.contrib.auth.models import User 
 
 class SeekerProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) # one to one relationship with the user model
+    user = models.OneToOneField(User, on_delete=models.CASCADE) 
     skills = models.TextField()
     education = models.CharField(max_length=255)
     resume = models.FileField(upload_to='resumes/',blank=True, null=True )
@@ -13,7 +13,7 @@ class SeekerProfile(models.Model):
 
 
 class EmployerProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) # one to one relationship with the user model
+    user = models.OneToOneField(User, on_delete=models.CASCADE) 
     company_name = models.CharField(max_length=255,blank=True, null=True)
     company_description = models.TextField()
     logo = models.ImageField(upload_to='logos/', blank=True, null=True)

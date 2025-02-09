@@ -46,7 +46,7 @@ def edit_profile(request):
         skills = request.POST.get('skills')
         education = request.POST.get('education')
         resume = request.FILES.get('resume')
-        profile_picture = request.FILES.get('profile_picture')  # Get the uploaded file
+        profile_picture = request.FILES.get('profile_picture')  
         if profile_picture:
             user.profile_picture = profile_picture
 
@@ -157,19 +157,19 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
-
+@login_required
 def my_profile(request):
     user=request.user 
     profile=  SeekerProfile.objects.filter(user=user) 
     return render(request, 'FreshHire/my_profile.html', {'profile': profile},)
 
-
+@login_required
 def emy_profile(request):
     user=request.user 
     profile=  EmployerProfile.objects.filter(user=user) 
     return render(request, 'FreshHire/emy_profile.html', {'profile': profile},)   
 
-
+@login_required
 def post_job(request):
 
     if request.method== 'POST':
@@ -182,17 +182,19 @@ def post_job(request):
 
     return render(request, 'FreshHire/post_job.html')
 
-
+@login_required
 def job_listings(request):
     jobs= Job.objects.all(); 
     return render(request, 'FreshHire/job_listings.html',{'jobs':jobs}) 
 
-
+@login_required
 def job_details(request,job_id ):
     job=get_object_or_404(Job, id=job_id)
 
     return render(request, 'FreshHire/job_detail.html',{'job':job})
 
+
+@login_required
 def application(request,job_id):
     job=get_object_or_404(Job, id=job_id)
 
@@ -211,14 +213,14 @@ def application(request,job_id):
         return render(request,'FreshHire/job_application.html',{'job':job})
     
 
-
+@login_required
 def my_applications(request):
     user=request.user.seekerprofile
     applications=Application.objects.filter(seeker=user)
 
     return render(request,'FreshHire/seeker_applications.html',{'applications':applications}) 
 
-
+@login_required
 def my_listings(request):
     employer = request.user.employerprofile  
     jobs = Job.objects.filter(employer=employer)  
@@ -230,14 +232,12 @@ def my_listings(request):
 
 @login_required
 def employer_job_applications(request):
-    # Get the logged-in employer profile
+   
     employer = request.user.employerprofile  
-
-    # Get all jobs for the logged-in employer
     jobs = Job.objects.filter(employer=employer)  
 
     applications = []
-    # For each job, get the applications
+    # For each job let get the applications
     for job in jobs:
         job_applications = Application.objects.filter(job=job)
         applications.append({
@@ -250,16 +250,16 @@ def employer_job_applications(request):
 
 
 
-
+@login_required
 def application_detail(request,application_id):
-    # Retrieve the specific application using the application_id
+   
     application = get_object_or_404(Application, id=application_id)
 
   
     return render(request, 'FreshHire/application_detail.html', {'application': application})
 
 
-
+@login_required
 
 def chat(request, seeker_id, employer_id):
     messages = Message.objects.filter(
@@ -275,10 +275,8 @@ def chat(request, seeker_id, employer_id):
     
     return render(request, 'FreshHire/chat.html', {'messages': messages})
 
-from django.shortcuts import render
-from .models import Message, User  # Import your User and Message models
 
-
+@login_required
 def chat_list(request):
    
     employer = request.user
@@ -298,12 +296,8 @@ def chat_list(request):
 
 
 
-from django.shortcuts import render
-from django.db.models import Q
-from .models import Message
 
-
-
+@login_required
 def schat_list(request):
     seeker = request.user
     # Retrieve all messages where the seeker is the sender or recipient
@@ -321,7 +315,7 @@ def schat_list(request):
     
     return render(request, 'FreshHire/seeker_chatlist.html', {'chat_partners': chat_partners})
 
-
+@login_required
 def schat_detail(request, employer_id, seeker_id):
     messages = Message.objects.filter(
         (Q(sender_id=employer_id, recipient_id=seeker_id) | 
