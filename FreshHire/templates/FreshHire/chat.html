@@ -1,19 +1,9 @@
 {% extends 'FreshHire/elayout.html' %}
 
 {% block body %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
-    <link rel="stylesheet" href="{% static 'FreshHire/css/chat.css' %}">
-</head>
-<body>
     <div class="chat-container">
         <div class="chat-header">
-            <h2>Chat with {{ other_user.username }}</h2>
+            
         </div>
         <div class="chat-messages" id="chat-messages">
             {% for message in messages %}
@@ -31,6 +21,4 @@
             </form>
         </div>
     </div>
-</body>
-</html>
 {% endblock %}
