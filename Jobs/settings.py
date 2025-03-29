@@ -77,20 +77,21 @@ WSGI_APPLICATION = 'Jobs.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-#postgresql://jobs_5jrx_user:PRIAwoCFeBZxJOEAX2xPJb4BWnwjmrki@dpg-cuj8suqj1k6c73cpe3b0-a/jobs_5jrx
-#postgresql://jobs_5jrx_user:PRIAwoCFeBZxJOEAX2xPJb4BWnwjmrki@dpg-cuj8suqj1k6c73cpe3b0-a.oregon-postgres.render.com/jobs_5jrx
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hires',
-        'USER': 'postgres',
-        'PASSWORD': 'pCyberDBDataBase',
-        'HOST': 'localhost',
-        'PORT': '5432',
+       # 'NAME': 'hires',
+      #  'USER': 'postgres',
+       # 'PASSWORD': 'pCyberDBDataBase',
+     #   'HOST': 'localhost',
+     #   'PORT': '5432',
     }
 }
-DATABASES['default']=  dj_database_url.parse("postgresql://jobs_5jrx_user:PRIAwoCFeBZxJOEAX2xPJb4BWnwjmrki@dpg-cuj8suqj1k6c73cpe3b0-a/jobs_5jrx")
+#postgresql://jobs_i99l_user:GGWohRwcJhh1DH4GPDzpt3tUUxPHUu7Q@dpg-cvjt7k6uk2gs73a2qjrg-a.oregon-postgres.render.com/jobs_i99l
+#postgresql://jobs_i99l_user:GGWohRwcJhh1DH4GPDzpt3tUUxPHUu7Q@dpg-cvjt7k6uk2gs73a2qjrg-a/jobs_i99l
+
+DATABASES['default']=  dj_database_url.parse("postgresql://jobs_i99l_user:GGWohRwcJhh1DH4GPDzpt3tUUxPHUu7Q@dpg-cvjt7k6uk2gs73a2qjrg-a/jobs_i99l")
 
 
 
